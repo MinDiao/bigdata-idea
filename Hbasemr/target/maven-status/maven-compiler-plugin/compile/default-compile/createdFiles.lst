@@ -1,0 +1,3 @@
+com\tz\hbasemr\LoveDriver.class
+com\tz\hbasemr\ReadLoveMapper.class
+com\tz\hbasemr\WriteLoveReducer.class
