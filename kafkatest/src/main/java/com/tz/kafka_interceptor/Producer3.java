@@ -1,23 +1,23 @@
-package com.tz.kafka_producer;
+package com.tz.kafka_interceptor;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Properties;
 
-/**
- * 一、生产者producer-API
- */
-public class Producer1 {
+public class Producer3 {
     public static void main(String[] args) {
-        // 1.配置生产者属性（指定多个参数）
+        // 1.配置生产者属性(指多个参数)
         Properties prop = new Properties();
 
         /**
          * 参数配置
          */
         // kafka节点的地址
-        prop.put("bootstrapp.servers", "192.168.133.128:9092");
+        prop.put("bootstrap.servers", "192.168.133.128:9092");
         // 发送消息是否等待应答
         prop.put("acks", "all");
         // 配置发送消息失败重试
@@ -29,8 +29,15 @@ public class Producer1 {
         // 配置内存缓冲大小
         prop.put("buffer.memory", "12341235");
         // 消息在发送前必须序列化
-        prop.put("key.serializer", "org.apache.kafka_producer2_patition.common.serialization.StringSerializer");
-        prop.put("value.serializer", "org.apache.kafka_producer2_patition.common.serialization.StringSerializer");
+        prop.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        prop.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        /**
+         * 拦截器
+         */
+        ArrayList<String> inList = new ArrayList<String>();
+        inList.add("com.itstare.kafka.interceptor.TimeInterceptor");
+        prop.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, inList);
 
         // 2.实例化producer
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(prop);
