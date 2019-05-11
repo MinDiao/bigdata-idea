@@ -6,6 +6,9 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Map;
 
+/**
+ * 五、kafka-拦截器
+ */
 public class TimeInterceptor implements ProducerInterceptor<String, String> {
     public ProducerRecord<String, String> onSend(ProducerRecord<String, String> record) {
         return new ProducerRecord<String, String>(

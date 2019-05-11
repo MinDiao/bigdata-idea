@@ -31,7 +31,7 @@ public class Producer2 {
         // 消息在发送前必须序列化
         prop.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         prop.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        prop.put("partitioner.class", "com.itstar.kafka.kafka_producer.Patition1");
+        prop.put("partitioner.class", "com.tz.kafka_producer2_patition.Patition");
 
         // 2.实例化producer
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(prop);

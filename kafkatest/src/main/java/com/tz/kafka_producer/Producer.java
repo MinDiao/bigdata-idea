@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * 一、生产者producer-API
  */
-public class Producer3 {
+public class Producer {
     public static void main(String[] args) {
         // 1.配置生产者属性（指定多个参数）
         Properties prop = new Properties();

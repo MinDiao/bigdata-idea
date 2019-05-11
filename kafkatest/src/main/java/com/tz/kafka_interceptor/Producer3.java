@@ -8,6 +8,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Properties;
 
+/**
+ * 五、kafka-拦截器
+ */
 public class Producer3 {
     public static void main(String[] args) {
         // 1.配置生产者属性(指多个参数)
@@ -36,7 +39,7 @@ public class Producer3 {
          * 拦截器
          */
         ArrayList<String> inList = new ArrayList<String>();
-        inList.add("com.itstare.kafka.interceptor.TimeInterceptor");
+        inList.add("com.tz.kafka_interceptor.TimeInterceptor");
         prop.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, inList);
 
         // 2.实例化producer
